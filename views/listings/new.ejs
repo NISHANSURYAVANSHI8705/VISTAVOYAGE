@@ -1,0 +1,87 @@
+<% layout("layouts/boilerplate") -%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <!-- title -->
+        <div class="mb-1">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" required/>
+            <div class="valid-feedback">Title looks good</div> 
+            <div class="invalid-feedback">Title should be valid</div>
+        </div>
+        
+<!-- this text will be visible beneath the title box when user enters correct title -->
+
+
+        <!-- description -->
+        <div class="mb-1">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+
+        <!-- image link or url -->
+        <!-- <div class="mb-1">
+            <label for="image" class="form-label" >Image Link</label>
+            <input type="text" name="listing[image]" placeholder="Enter Image Link/URL" class="form-control"/>
+        </div> -->
+        <div class="mb-1">
+            <label for="image" class="form-label" >Upload Listing image
+            </label>
+            <input type="file" name="listing[image]" class="form-control"/>
+            
+        </div>
+        <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" class="form-select" id="category" required>
+    <option value="Trending">Trending</option>
+    <option value="Rooms">Rooms</option>
+    <option value="Iconic Cities">Iconic Cities</option>
+    <option value="Mountains">Mountains</option>
+    <option value="Castles">Castles</option>
+    <option value="Amazing Pools">Amazing Pools</option>
+    <option value="Camping">Camping</option>
+    <option value="Farms">Farms</option>
+    <option value="Arctic">Arctic</option>
+  </select>
+</div>
+       <div class="row">
+        <!-- on medium screen and larger 4 & 8 split
+          On small screens → both become full width automatically-->
+<div class="mb-1 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" name="listing[price]" placeholder="1200" class="form-control" required/>
+                    <div class="invalid-feedback">Price should be valid</div>
+            </div>
+            
+            <!-- country -->
+            <div class="mb-1 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" name="listing[country]" placeholder="India" class="form-control" required/>
+                <div class="invalid-feedback">Country name should be valid</div>
+            </div>
+        </div>
+
+        <!-- location -->
+        <div class="mb-1">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" placeholder="Pune,Maharashtra"  class="form-control" required/>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+       
+        <!-- class="mb-3" add space i.e margin bottom 3 -->
+         <button class="btn btn-dark add-btn mt-3">ADD</button>
+        <!-- bootstrap button -->
+    </form>
+
+    </div>
+</div>
+</body>
+
+
+<!-- sara form rows ke form me ayega -->
+<!-- agar puri screen 12 column me divided hein and we want that our form should occupy only 8 columns then we can write  <div class="col-8"> and at the end of form </div>-->
+ <!-- and if we want that there should some space from left so that form comes in m iddle so we will give some offset like  <div class="col-8  offset-2"> -->
+    <!-- to make price and country come on same row or same line -->

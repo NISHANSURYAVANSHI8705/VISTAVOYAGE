@@ -1,0 +1,72 @@
+<style>
+  .form-control{
+    height:35px;
+    font-size:0.9rem;
+    padding:0.25rem 0.5rem;
+    /* align-items:center; */
+  }
+  .btn-search{
+    background-color:#fe424d ;
+    color:white;
+    height:35px;
+    font-size:0.9rem;
+    padding:0 1rem 0 1rem; /* top right bottom lefr*/
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    border-radius:25px;
+    /* height:1rem; */
+  }
+  .btn-search:hover {
+    background-color:#fe424d ;
+    color:white;
+  }
+  .search-inp{
+    border-radius:25px;
+    padding:0.5rem 3rem 0.5rem 3rem;
+    font-size:0.9rem;
+  }
+  
+  /* .btn-search i{
+    display:inline; 
+  } */
+</style>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <!-- icon -->
+    <!-- <a class="navbar-brand" href="/listings"><i class="fa-solid fa-earth-americas" style="color: rgb(254, 66, 77);"></i>VistaVoyage</a> -->
+     <a class="navbar-brand d-flex flex-column align-items-center" href="/listings" style="margin-right: 2rem;">
+    <i class="fa-solid fa-mountain-city" style="font-size: 1.6rem; color: #fe424d;"></i>
+    <span style="font-size: 0.7rem; font-weight: 800; color: #fe424d; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px;">
+        VistaVoyage
+    </span>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto" >
+        <form class="d-flex" role="search" action="/listings" method="GET">
+        <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" name="search" aria-label="Search" height="2rem"/>
+        <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search </button>
+    </form>
+
+      </div>
+      <div class="navbar-nav ms-auto">
+        <!-- req.user cannot be directly accessed inside the ejs template so we are using res.locals to access it,I.E b storing it inside the local variable  -->
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!CurrUser){ %> 
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
+        <% if(CurrUser){ %>
+          <a class="nav-link" href="/logout">Log out</a>
+        <% } %> 
+      </div>
+    </div>
+  </div>
+</nav>

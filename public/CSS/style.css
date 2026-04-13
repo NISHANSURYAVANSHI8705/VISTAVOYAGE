@@ -1,0 +1,171 @@
+body{
+ font-family: "Plus Jakarta Sans", sans-serif !important;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+
+.container{
+    flex:1;
+    /* This means:
+
+Container should take all remaining vertical space.
+So what happens?
+Navbar takes its natural height
+Footer takes its natural height
+Container stretches to fill remaining space
+✅ Result: Footer stays at bottom even if content is small. */
+}
+/* Navbar */
+.navbar{
+    height:5 rem;
+    background-color:white
+}
+
+.fa-compass{
+    color :#fe424d;
+    font-size: 2 rem; 
+}
+
+/* making option look darker */
+.nav-link{
+    color:#222222 !important;
+    /* by default we are using bootstrap styling so we want that our custom styling should override the styling applied by bootstrap so we are using !important which results in overrding of custom styling over bootstrap styling */
+
+}
+
+.f-info-links a{
+    text-decoration:none; 
+    /* this is used to remove the blue underline below the words represnting them as link */
+    color:#222222;
+}
+.f-info-links a:hover{
+    text-decoration:underline;
+}
+
+.f-info-links,.f-info-socials{
+    width:100%;
+}
+
+.f-info-socials{
+    font-size:1.2rem;
+}
+
+.f-info-socials i:not(:last-child){
+    margin-right:1rem;
+   
+}
+
+
+.f-info{
+    text-align:center;/*align text horizontally ,no need of flex */
+    height:8rem;
+    background-color:#ebebeb;
+    display:flex;  /*align items horizontally*/           
+    flex-wrap:wrap;/*If items don’t fit in one row
+👉 They move to the next line
+👉 Just like text wrapping*/
+    justify-content:space-evenly;
+    align-items:center; /*align items based on flex-direction ,by default flex-direction is row so it align elements on cross-axis i.e vertically center in this case*/
+}
+
+/* Card */
+/* .listing-card{
+    border:none !important;
+    margin-bottom:2rem;
+} */
+ .listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+    /* Reduce card width feel by adding internal padding */
+    /* padding: rem;  */
+}
+.listing-card img {
+    border-radius: 1rem !important;
+    height: 18rem !important; /* Uniform height for all images */
+    /* object-fit: cover; */
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width:100%;
+    object-fit:cover !important;
+}
+
+.card-body{
+    padding:0 !important;
+    font-weight:400 !important;
+}
+.listing-link{
+    text-decoration:none;
+}
+/* Card Effect */
+.card-img-overlay{
+    opacity:0;
+}
+
+.card-img-overlay:hover{
+    opacity:0.2;
+    background-color:white;
+}
+.add-btn{
+    background-color:#fe424d !important;
+    border:none !important
+}
+  /* Edit Page Styling */
+.editbtn{
+    background-color:#fe424d !important;
+    border:none !important;
+}
+
+/* Show Page */
+.show-img{
+    height:30vh;
+}
+
+.btns{
+    display:flex;
+   
+}
+button {
+  padding: 10px 20px; /* Same vertical padding for both */
+  height: 50px;
+  width:100px !important; /* Or set a fixed height */
+  line-height: 1 ; /* Prevents text from adding extra height */
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0
+}
+
+/* maps styling */
+#map {
+    height:400px;
+    width:100vh;
+     }
+
+/* Mapbox Popup Close Button ko c/* Popup container ko clean karne ke liye */
+.mapboxgl-popup-content {
+    padding: 15px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Close button ka box aur size dono chota karne ke liye */
+.mapboxgl-popup-close-button {
+    font-size: 16px !important; /* Cross ka size */
+    line-height: 1 !important;
+    padding: 4px 8px !important;
+    width: auto !important;     /* Extra space khatam karne ke liye */
+    height: auto !important;    /* Extra space khatam karne ke liye */
+    top: 5px !important;        /* Corner mein set karne ke liye */
+    right: 5px !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+}
+
+/* Text spacing thik karne ke liye */
+.mapboxgl-popup-content h4 {
+    margin-top: 5px !important;
+    padding-right: 20px !important; /* Taaki text cross ke niche na jaye */
+}
