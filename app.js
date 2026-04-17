@@ -1,6 +1,10 @@
 // dotenv is a thirs party library jo hamare env file ko backend ke sath integrate karwati hein
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-require('dotenv').config();
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// require('dotenv').config();
+
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
 
 
 const express = require("express");
