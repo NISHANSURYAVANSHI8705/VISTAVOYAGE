@@ -132,7 +132,10 @@ main().then(()=>{
     app.get("/health", (req, res) => {
         res.status(200).send("OK");
     });
-
+// Landing Page Route
+app.get("/", (req, res) => {
+    res.render("listings/landing.ejs");
+});
     app.use("/listings",listingRouter);
     app.use("/listings/:id/reviews",reviewRouter);
     app.use("/",userRouter);

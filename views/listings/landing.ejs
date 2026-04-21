@@ -1,0 +1,145 @@
+
+
+<style>
+    :root {
+        --brand-red: #fe424d;
+    }
+
+    /* This targets the main container usually found in boilerplates */
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* The Main Wrapper */
+    .hero-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        overflow: hidden;
+        z-index: 1; /* Sits behind the Navbar but above the body */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* The Card with the Image */
+    .hero-card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), 
+                    url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+    }
+
+    /* Content Box */
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: white;
+        transform: translateZ(100px);
+        width: 90%;
+    }
+
+    .brand-title {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+        font-weight: 900;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.1;
+        text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    .btn-explore {
+        background-color: var(--brand-red);
+        color: white !important;
+        padding: 16px 40px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 2rem;
+        box-shadow: 0 10px 20px rgba(254, 66, 77, 0.4);
+        transition: 0.3s;
+    }
+
+    .btn-explore:hover {
+        transform: scale(1.05);
+        background-color: #ff5a64;
+    }
+
+    /* Signature Line */
+    .signature {
+        position: absolute;
+        bottom: 120px; /* Moved up slightly to avoid overlapping footers */
+        width: 100%;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        z-index: 100;
+        letter-spacing: 1px;
+    }
+</style>
+
+<div class="hero-wrapper" id="scene">
+    <div class="hero-card" id="card">
+        <div class="hero-bg"></div>
+        
+        <div class="hero-content">
+            <p class="mb-2 text-uppercase" style="letter-spacing: 5px;">Discover</p>
+            <h1 class="brand-title">VistaVoyage</h1>
+            <p class="lead mt-2">Your Passport to Extraordinary Living</p>
+            
+            <a href="/listings" class="btn-explore">
+                Start Your Journey
+            </a>
+        </div>
+
+        <div class="signature">
+            Made with ❤️ by Nishan Suryavanshi
+        </div>
+    </div>
+</div>
+
+<script>
+    // Only initialize if the screen is large enough for 3D effects
+    if (window.innerWidth > 768) {
+        const card = document.getElementById('card');
+        const scene = document.getElementById('scene');
+
+        scene.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const tiltX = (y - 0.5) * 10; 
+            const tiltY = (0.5 - x) * 10;
+            card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+
+        scene.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        });
+    }
+</script>
